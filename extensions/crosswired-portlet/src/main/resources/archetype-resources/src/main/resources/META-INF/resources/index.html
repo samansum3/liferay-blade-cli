@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <% if(isDev){ %>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cw Vue App</title>
+    <% } %>
+</head>
+<body>
+<div id="cw_portlet_${className}Portlet"></div>
+<script type="module" src="./main.ts"></script>
+<script>
+    (function mount() {
+        let portletId = '${className}Portlet';
+        let w = window, appId = `#cw_portlet_${portletId}`;
+        w[appId] ? w[appId]() : setTimeout(() => mount(), 100)
+    })()
+</script>
+</body>
+</html>

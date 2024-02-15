@@ -1,0 +1,57 @@
+buildscript {
+	dependencies {
+		classpath group: "biz.aQute.bnd", name: "biz.aQute.bnd.gradle", version: "5.3.0"
+	}
+
+	repositories {
+		maven {
+			if (project.hasProperty("release")) {
+				url "https://repository.liferay.com/nexus/content/groups/public"
+			}
+			else {
+				url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+			}
+		}
+	}
+}
+
+apply plugin: "biz.aQute.bnd.builder"
+apply plugin: "eclipse"
+apply plugin: "java-library"
+
+dependencies {
+	compileOnly project(":cli")
+
+	testImplementation gradleTestKit()
+	testImplementation group: "junit", name: "junit", version: "4.13.1"
+	testImplementation project(path: ":cli")
+	testImplementation project(path: ":cli", configuration: "testApi")
+}
+
+eclipse {
+	classpath {
+		sourceSets -= [sourceSets.main]
+	}
+}
+
+compileJava{
+	dependsOn(":cli:unzipPortal")
+	dependsOn(":cli:unzipManifest")
+}
+
+jar{
+	dependsOn(":cli:unzipPortal")
+	dependsOn(":cli:unzipManifest")
+
+	archiveBaseName.set("com.liferay.project.templates.cw.portlet")
+}
+
+test {
+	dependsOn jar
+
+	doFirst {
+		systemProperty 'sampleTemplateJarFile', jar.archivePath
+	}
+}
+
+version = "1.0.0"

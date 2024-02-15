@@ -1,0 +1,10 @@
+{
+  "name": "${artifactId}",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config-dev.ts",
+    "build": "vue-tsc && vite build"
+  }
+}

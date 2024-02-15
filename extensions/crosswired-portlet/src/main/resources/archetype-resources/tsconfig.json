@@ -1,0 +1,23 @@
+{
+  "extends": "../cw-frontend/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@styles/*": [
+        "../cw-frontend/cw-vue-component-library/src/main/resources/META-INF/resources/styles/*"
+      ],
+      "@/*": [
+        "./src/main/resources/META-INF/resources/*"
+      ]
+    }
+  },
+  "include": [
+    "src/main/resources/META-INF/resources/**/*.ts",
+    "src/main/resources/META-INF/resources/**/*.tsx",
+    "src/main/resources/META-INF/resources/**/*.vue"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

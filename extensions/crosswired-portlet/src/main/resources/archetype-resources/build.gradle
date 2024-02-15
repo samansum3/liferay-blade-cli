@@ -1,0 +1,9 @@
+apply from: "${rootDir}/dependencies/developer-aid-kit.gradle"
+apply from: "${rootDir}/dev/gradle/build.gradle"
+evaluationDependsOn(":modules:apps:cw-frontend:cw-vue-component-library")
+
+dependencies {
+	compileOnly "${com_liferay_portal_dxp_api}"
+
+	compileOnly project(":modules:apps:cw-frontend:cw-frontend-api")
+}
