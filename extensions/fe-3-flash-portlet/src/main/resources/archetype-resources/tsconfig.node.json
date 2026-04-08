@@ -1,5 +1,5 @@
 {
-  "extends": "../cw-frontend/tsconfig.node.json",
+  "extends": "../../cw-frontend/tsconfig.node.json",
   "include": [
     "vite.config.ts"
   ]
