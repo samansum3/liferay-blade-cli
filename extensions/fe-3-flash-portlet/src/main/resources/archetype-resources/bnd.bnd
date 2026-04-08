@@ -1,0 +1,4 @@
+Bundle-Name: ${artifactId}
+Bundle-SymbolicName: ${artifactId}
+Bundle-Version: ${version}
+Web-ContextPath: /${artifactId}

@@ -1,0 +1,13 @@
+{
+  "name": "${artifactId}",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config-dev.ts",
+    "build": "vue-tsc && vite build",
+    "lint": "eslint --ext .js,.ts,.vue src/main/resources/META-INF/resources",
+    "lint:fix": "eslint --fix --ext .js,.ts,.vue src/main/resources/META-INF/resources",
+    "format": "prettier --write \"src/main/resources/META-INF/resources/**/*.{js,ts,vue,css,scss}\""
+  }
+}

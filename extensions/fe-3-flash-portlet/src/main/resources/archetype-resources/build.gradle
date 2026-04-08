@@ -1,0 +1,7 @@
+apply from: "${rootDir}/dependencies/developer-aid-kit.gradle"
+
+dependencies {
+    compileOnly "${com_liferay_portal_dxp_api}"
+
+    compileOnly project(":modules:apps:cw-frontend:cw-frontend-api")
+}

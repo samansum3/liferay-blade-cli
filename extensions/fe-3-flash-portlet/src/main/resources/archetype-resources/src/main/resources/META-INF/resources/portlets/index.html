@@ -1,0 +1,25 @@
+<% if(isDev){ %>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FE-3 Flash</title>
+</head>
+<body>
+<div class="container-fluid-1280">
+  <% } %>
+  <div id="cw_portlet_${className}Portlet"></div>
+  <script type="module" src="./${className}App.ts"></script>
+  <script>
+    (function mount() {
+        let portletId = '${className}Portlet';
+        let w = window, appId = `#cw_portlet_${portletId}`;
+        w[appId] ? w[appId]() : setTimeout(() => mount(), 100)
+    })()
+  </script>
+  <% if(isDev){ %>
+</div>
+</body>
+</html>
+<% } %>

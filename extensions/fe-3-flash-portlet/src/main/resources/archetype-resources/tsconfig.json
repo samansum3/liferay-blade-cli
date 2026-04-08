@@ -1,0 +1,33 @@
+{
+  "extends": "../cw-frontend/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@lib/*": [
+        "../cw-frontend/cw-vue-component-library/src/main/resources/META-INF/resources/*"
+      ],
+      "@styles/*": [
+        "../cw-frontend/cw-vue-component-library/src/main/resources/META-INF/resources/styles/*"
+      ],
+      "@/*": [
+        "./src/main/resources/META-INF/resources/*"
+      ]
+    },
+    "types": [
+      "../../../globals.d.ts",
+      "../../../properties.d.ts",
+      "../../../global-component.d.ts",
+      "../../../moment.d.ts"
+    ]
+  },
+  "include": [
+    "../../../*.d.ts",
+    "src/main/resources/META-INF/resources/**/*.ts",
+    "src/main/resources/META-INF/resources/**/*.tsx",
+    "src/main/resources/META-INF/resources/**/*.vue"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
